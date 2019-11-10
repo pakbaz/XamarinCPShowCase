@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:CrossPlatformPOCShowcase.Converters"
+             mc:Ignorable="d"
+             x:Class="CrossPlatformPOCShowcase.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryTextColor" x:FactoryMethod="FromRgba">
+                <x:Arguments>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0.87</x:Double>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="SecondaryTextColor" x:FactoryMethod="FromRgba">
+                <x:Arguments>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0.54</x:Double>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="PrimaryTextColorOnDark">#FFF</Color>
+            <Color x:Key="SecondaryTextColorOnDark" x:FactoryMethod="FromRgba">
+                <x:Arguments>
+                    <x:Double>255</x:Double>
+                    <x:Double>255</x:Double>
+                    <x:Double>255</x:Double>
+                    <x:Double>0.7</x:Double>
+                </x:Arguments>
+            </Color>
+            <Color x:Key="White">#FFF</Color>
+            <Color x:Key="NavigationPrimary">#00467D</Color>
+            <Color x:Key="PrimaryBlue">#00467D</Color>
+            <Color x:Key="AccentOrange">#F4802B</Color>
+            <Color x:Key="AccentLightBlue">#007CA8</Color>
+            <Color x:Key="AccentUltraLightBlue">#EDF7FF</Color>
+            <Color x:Key="AccentGreen">#448808</Color>
+            <Color x:Key="BackgroundLight">#E4E4E4</Color>
+            <Color x:Key="BackgroundUltraLight">#EFEFEF</Color>
+            <Color x:Key="BackgroundDark">#444</Color>
+            <Color x:Key="BackgroundDarkTransparent" x:FactoryMethod="FromRgba">
+                <x:Arguments>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0</x:Double>
+                    <x:Double>0.8</x:Double>
+                </x:Arguments>
+            </Color>
+
+
+            <!--Font-->
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFontFamily" Android="sans-serif" iOS=".SFUIText-Bold"/>
+            <OnPlatform x:TypeArguments="x:String" x:Key="ThinFontFamily" Android="sans-serif-thin" iOS=".SFUIText-Light"/>
+            <OnPlatform x:TypeArguments="x:String" x:Key="DefaultFontFamily" Android="sans-serif" iOS=".SFUIText"/>
+
+            <!--Font Icons-->
+            <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+                <On Platform="iOS" Value="Material Design Icons" />
+                <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+                <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
+            </OnPlatform>
+            
+            <!--Global Styles-->
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style TargetType="Label" x:Key="TitleLabel">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource BoldFontFamily}" />
+            </Style>
+            <Style TargetType="Label" x:Key="SubtitleLabel">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="FontFamily" Value="{StaticResource BoldFontFamily}" />
+            </Style>
+            <!--Global Styles--><!--
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>-->
+
+
+            <!--Converters-->
+            <converters:CategoryToColorConverter x:Key="CaregoryToColorConverter" />
+            <converters:CategoryToBackgroundColorConverter x:Key="CaregoryToBackgroundColorConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

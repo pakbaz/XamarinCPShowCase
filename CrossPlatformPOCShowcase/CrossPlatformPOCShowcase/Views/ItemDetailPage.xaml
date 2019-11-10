@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CrossPlatformPOCShowcase.Views.ItemDetailPage"
+             Title="{Binding Title}" BackgroundColor="{Binding Item.Category, Converter={StaticResource CaregoryToBackgroundColorConverter}}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="DeleteItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Spacing="20">
+        <Label Text="{Binding Item.Category}" BackgroundColor="{Binding Item.Category, Converter={StaticResource CaregoryToColorConverter}}" TextColor="White" FontSize="Large" Margin="0,0,0,20" Padding="30" />
+        <Label Margin="15,0,10,0" Text="Text:" FontSize="Medium" />
+        <Label Margin="20,0,10,0"  Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
+        <Label Margin="15,0,10,0" Text="Description:" FontSize="Medium" />
+        <Label Margin="20,0,10,0" Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>
+    </StackLayout>
+    
+</ContentPage>
