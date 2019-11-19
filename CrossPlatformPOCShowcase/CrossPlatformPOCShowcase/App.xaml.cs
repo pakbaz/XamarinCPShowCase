@@ -17,7 +17,7 @@ namespace CrossPlatformPOCShowcase
         //If using other emulators besides stock Google images you may need to adjust the IP address
         public static string AzureBackendUrl;
             
-        public static DataStoreTypes datastore = DataStoreTypes.Sqlite;
+        public static DataStoreTypes datastore = DataStoreTypes.Azure;
         public static string SqliteDbPath;
         public App()
         {
@@ -30,7 +30,7 @@ namespace CrossPlatformPOCShowcase
                     break;
                 case DataStoreTypes.Azure:
                     //AzureBackendUrl = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
-                    AzureBackendUrl = "https://crossplatformpocshowcase.azurewebsites.net/";
+                    AzureBackendUrl = "https://crossplatformpoc.azurewebsites.net";
                     DependencyService.Register<AzureDataStore>();
                     break;
                 case DataStoreTypes.Sqlite:

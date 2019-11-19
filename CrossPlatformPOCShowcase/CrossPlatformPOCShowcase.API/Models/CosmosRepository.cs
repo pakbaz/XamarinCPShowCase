@@ -1,9 +1,14 @@
 ﻿using CrossPlatformPOCShowcase.Core.Interfaces;
 using CrossPlatformPOCShowcase.Core.Models;
+using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Cosmos.Storage.Internal;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace CrossPlatformPOCShowcase.API.Models
@@ -23,13 +28,19 @@ namespace CrossPlatformPOCShowcase.API.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION =" + "(ADDRESS = (PROTOCOL = TCP)(HOST = 40.78.62.226)(PORT = 1521))" + "(CONNECT_DATA =" + "(SERVER = DEDICATED)" + "(SERVICE_NAME = pdb1)));" + "User Id= azureuser;Password=OraPasswd1;");
-            optionsBuilder.UseCosmos("https://mssp.documents.azure.com:443/", "B7SW7ti5wNMTwPVi9MIkaxAguPdw582ywoThyW8P0P9qHp2m1pf8yUBIKhwUVSZ1Iskb5l0cQot5j4QeA2otvg==", "CrossPlatform");
+            optionsBuilder.UseCosmos("https://mssp.documents.azure.com:443/",
+                "B7SW7ti5wNMTwPVi9MIkaxAguPdw582ywoThyW8P0P9qHp2m1pf8yUBIKhwUVSZ1Iskb5l0cQot5j4QeA2otvg==",
+                "CrossPlatform");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //make ID property the key
             modelBuilder.Entity<Item>()
                 .HasKey(p => p.Id);
+
+            modelBuilder.Entity<Item>()
+                .Property(p => p.Id)
+                .HasValueGenerator<StringGuidGenerator>();
             //require text to be set
             modelBuilder.Entity<Item>()
                 .Property(p => p.Text)
@@ -118,6 +129,17 @@ namespace CrossPlatformPOCShowcase.API.Models
             {
                 return false;
             }
+        }
+    }
+
+
+    public class StringGuidGenerator : ValueGenerator<string>
+    {
+        public override bool GeneratesTemporaryValues => false;
+
+        public override string Next([NotNull] EntityEntry entry)
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }
