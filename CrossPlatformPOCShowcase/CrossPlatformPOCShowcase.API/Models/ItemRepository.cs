@@ -6,7 +6,7 @@ using CrossPlatformPOCShowcase.Core.Interfaces;
 using CrossPlatformPOCShowcase.Core.Models;
 
 
-namespace CrossPlatformPOCShowcase.Models
+namespace CrossPlatformPOCShowcase.API.Models
 {
     public class ItemRepository : IDataStore<Item>
     {
