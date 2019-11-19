@@ -23,7 +23,7 @@ namespace CrossPlatformPOCShowcase.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Item>>> List()
         {
-            var items = await ItemRepository.GetItemsAsync();
+            var items = await ItemRepository.GetItemsAsync(true);
             return Ok(items);
         }
 
