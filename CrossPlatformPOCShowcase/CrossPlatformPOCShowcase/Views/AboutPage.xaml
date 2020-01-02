@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="CrossPlatformPOCShowcase.Views.AboutPage"
              xmlns:vm="clr-namespace:CrossPlatformPOCShowcase.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Visual="Material">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />

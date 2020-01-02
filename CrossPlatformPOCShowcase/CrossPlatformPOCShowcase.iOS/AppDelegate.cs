@@ -24,8 +24,9 @@ namespace CrossPlatformPOCShowcase.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
 
-           // create the data folder conntainer if doesn't exist
+            // create the data folder conntainer if doesn't exist
             var libPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "..", "Library", "data");
             if (!Directory.Exists(libPath))
             {

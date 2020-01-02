@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CrossPlatformPOCShowcase.Views.MenuPage"
-             Title="Menu">
+             Title="{Binding Title}"
+             Visual="Material">
              
     <StackLayout VerticalOptions="FillAndExpand">
         <Image Margin="10" HorizontalOptions="Center">

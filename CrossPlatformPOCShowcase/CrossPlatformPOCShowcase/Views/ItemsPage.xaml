@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="CrossPlatformPOCShowcase.Views.ItemsPage"
              Title="{Binding Title}"
+             Visual="Material"
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>

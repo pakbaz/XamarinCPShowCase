@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="CrossPlatformPOCShowcase.Views.ItemDetailPage"
-             Title="{Binding Title}" BackgroundColor="{Binding Item.Category, Converter={StaticResource CaregoryToBackgroundColorConverter}}">
+             Title="{Binding Title}"
+             Visual="Material" BackgroundColor="{Binding Item.Category, Converter={StaticResource CaregoryToBackgroundColorConverter}}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
