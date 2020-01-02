@@ -45,7 +45,7 @@
                                 <ColumnDefinition Width="4*" />
                             </Grid.ColumnDefinitions>
                             <BoxView Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{Binding Category, Converter={StaticResource CaregoryToColorConverter}}" />
-                            <Label Grid.Column="0" Text="{Binding Category}" Margin="5" TextColor="White" FontAttributes="Bold" FontSize="Small" VerticalOptions="Center" HorizontalOptions="End" />
+                            <Label Grid.Column="0" Text="{Binding Category}" Margin="5" TextColor="White" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" HorizontalOptions="End" />
 
                             <StackLayout Grid.Column="1"  Padding="0" BackgroundColor="{Binding Category,Converter={StaticResource CaregoryToBackgroundColorConverter}}">
                                 <Label Text="{Binding Text}" 
