@@ -67,6 +67,7 @@
             </OnPlatform>
             <x:String x:Key="ViewList">&#xf572;</x:String>
             <x:String x:Key="Information">&#xf2fc;</x:String>
+            <x:String x:Key="Xamarin">&#xf845;</x:String>
             
             
             <!--Global Styles-->

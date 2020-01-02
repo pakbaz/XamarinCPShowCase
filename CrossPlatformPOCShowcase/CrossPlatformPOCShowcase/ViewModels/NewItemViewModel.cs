@@ -11,6 +11,7 @@ namespace CrossPlatformPOCShowcase.ViewModels
     {
         public NewItemViewModel()
         {
+            Title = "New Item";
             SaveCommand = new Command(async() =>
             {
                 MessagingCenter.Send(this, "AddItem", new Item { Text = Text, Category = (ItemCategory)Category, Description = Description});
