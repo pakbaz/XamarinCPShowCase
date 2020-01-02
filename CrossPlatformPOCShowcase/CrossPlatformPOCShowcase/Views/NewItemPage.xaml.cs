@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using CrossPlatformPOCShowcase.Models;
 using System.Linq;
 using CrossPlatformPOCShowcase.Core.Models;
+using CrossPlatformPOCShowcase.ViewModels;
 
 namespace CrossPlatformPOCShowcase.Views
 {
@@ -15,31 +16,12 @@ namespace CrossPlatformPOCShowcase.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public List<string> Categories => Enum.GetNames(typeof(ItemCategory)).ToList();
-        public Item Item { get; set; }
-
+       
         public NewItemPage()
         {
             InitializeComponent();
-
-            Item = new Item
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
-
-            BindingContext = this;
+            BindingContext = new NewItemViewModel();
         }
 
-        async void Save_Clicked(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
-        }
-
-        async void Cancel_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
     }
 }

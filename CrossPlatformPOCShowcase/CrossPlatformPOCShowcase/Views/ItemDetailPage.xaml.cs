@@ -27,22 +27,8 @@ namespace CrossPlatformPOCShowcase.Views
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                Text = "Item 1",
-                Description = "This is an item description.",
-                Category = ItemCategory.Personal
-            };
-
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new ItemDetailViewModel(Navigation);
             BindingContext = viewModel;
-        }
-
-
-        async void DeleteItem_Clicked(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "DeleteItem", viewModel.Item);
-            await Navigation.PopAsync();
         }
     }
 }

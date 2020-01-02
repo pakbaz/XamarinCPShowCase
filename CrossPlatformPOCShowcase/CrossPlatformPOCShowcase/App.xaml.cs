@@ -29,7 +29,7 @@ namespace CrossPlatformPOCShowcase
                     DependencyService.Register<MockDataStore>();
                     break;
                 case DataStoreTypes.Azure:
-                    //AzureBackendUrl = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5000" : "http://localhost:5000";
+                    //AzureBackendUrl = DeviceInfo.Platform == DevicePlatform.Android ? "https://10.0.2.2:44379" : "https://localhost:44379";
                     AzureBackendUrl = "https://crossplatformpoc.azurewebsites.net";
                     DependencyService.Register<AzureDataStore>();
                     break;

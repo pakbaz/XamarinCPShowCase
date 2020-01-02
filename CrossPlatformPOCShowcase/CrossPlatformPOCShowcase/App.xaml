@@ -65,13 +65,16 @@
                 <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
                 <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
             </OnPlatform>
+            <x:String x:Key="ViewList">&#xf572;</x:String>
+            <x:String x:Key="Information">&#xf2fc;</x:String>
+            
             
             <!--Global Styles-->
             <Style TargetType="Label">
-                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontFamily" Value="{StaticResource BoldFontFamily}" />
             </Style>
             <Style TargetType="Button">
-                <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+                <Setter Property="FontFamily" Value="{StaticResource BoldFontFamily}" />
             </Style>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />

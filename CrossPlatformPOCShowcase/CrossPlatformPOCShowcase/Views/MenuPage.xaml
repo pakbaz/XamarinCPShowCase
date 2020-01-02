@@ -8,7 +8,16 @@
              Title="Menu">
              
     <StackLayout VerticalOptions="FillAndExpand">
-        <ListView x:Name="ListViewMenu"
+        <Image Margin="10" HorizontalOptions="Center">
+            <Image.Source>
+                <FontImageSource
+                    FontFamily="{DynamicResource MaterialFontFamily}"
+                    Glyph="{StaticResource ViewList}"
+                    Size="100"
+                    Color="{StaticResource SecondaryTextColor}" />
+            </Image.Source>
+        </Image>
+        <ListView x:Name="ListViewMenu" Footer="Microsoft"
                     HasUnevenRows="True">
             <d:ListView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">

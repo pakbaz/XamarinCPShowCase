@@ -8,7 +8,7 @@
              Title="{Binding Title}" BackgroundColor="{Binding Item.Category, Converter={StaticResource CaregoryToBackgroundColorConverter}}">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete" Clicked="DeleteItem_Clicked" />
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}" />
     </ContentPage.ToolbarItems>
     
     <StackLayout Spacing="20">
