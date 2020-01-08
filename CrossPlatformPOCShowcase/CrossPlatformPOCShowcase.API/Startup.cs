@@ -24,7 +24,7 @@ namespace CrossPlatformPOCShowcase.API
         {
             services.AddControllers();
 
-            services.AddSingleton<IDataStore<Item>, CosmosRepository>();
+            services.AddSingleton<IDataStore<Item>, InMemoryRepository>();
 
             services.AddSwaggerGen(c =>
             {

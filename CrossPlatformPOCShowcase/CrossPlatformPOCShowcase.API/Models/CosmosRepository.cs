@@ -3,7 +3,6 @@ using CrossPlatformPOCShowcase.Core.Models;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Cosmos.Storage.Internal;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 using System;
@@ -13,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace CrossPlatformPOCShowcase.API.Models
 {
-    public class CosmosRepository : DbContext , IDataStore<Item>
+    public class InMemoryRepository : DbContext , IDataStore<Item>
     {
         /// <summary>
         /// Create our repositoty
         /// </summary>
-        public CosmosRepository() : base()
+        public InMemoryRepository() : base()
         {
             //Create database if not there. also does seeding
             Database.EnsureCreated();
@@ -27,10 +26,9 @@ namespace CrossPlatformPOCShowcase.API.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION =" + "(ADDRESS = (PROTOCOL = TCP)(HOST = 40.78.62.226)(PORT = 1521))" + "(CONNECT_DATA =" + "(SERVER = DEDICATED)" + "(SERVICE_NAME = pdb1)));" + "User Id= azureuser;Password=OraPasswd1;");
-            optionsBuilder.UseCosmos("https://mssp.documents.azure.com:443/",
-                "B7SW7ti5wNMTwPVi9MIkaxAguPdw582ywoThyW8P0P9qHp2m1pf8yUBIKhwUVSZ1Iskb5l0cQot5j4QeA2otvg==",
-                "CrossPlatform");
+            //optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION =" + "(ADDRESS = (PROTOCOL = TCP)(HOST = IP)(PORT = 1521))" + "(CONNECT_DATA =" + "(SERVER = DEDICATED)" + "(SERVICE_NAME = pdb1)));" + "User Id= azureuser;Password=OraPasswd1;");
+            //optionsBuilder.UseCosmos("url","key","CrossPlatform");
+            optionsBuilder.UseInMemoryDatabase("CrossPlatform");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
